@@ -113,8 +113,8 @@ button a svg {
 }
 br{
     margin: 0;
+    
 }
-
 .ans > br::before  {
     content: '- -'; /* Add a hyphen before each line */
     color: var(--hlight);   /* Change the color of the hyphens to red or any other color */
