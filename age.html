@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+</head>
+<body>
+
+  <h1>Age Calculator</h1>
+  <label for="birthday">Enter your birthday:</label>
+  <input type="date" id="birthday" required>
+  <button onclick="calculateAge()">Calculate Age</button>
+
+  <p id="result"></p>
+
+  <script>
+    function calculateAge() {
+      // Get the input value (birthday)
+      var birthdayInput = document.getElementById('birthday').value;
+
+      // Validate the input
+      if (!birthdayInput) {
+        alert('Please enter your birthday');
+        return;
+      }
+
+      // Create a Date object from the input value
+      var birthdayDate = new Date(birthdayInput);
+
+      // Get the current date
+      var currentDate = new Date();
+
+      // Calculate the age
+      var age = currentDate.getFullYear() - birthdayDate.getFullYear();
+
+      // Check if birthday has occurred this year
+      if (currentDate.getMonth() < birthdayDate.getMonth() ||
+          (currentDate.getMonth() === birthdayDate.getMonth() && currentDate.getDate() < birthdayDate.getDate())) {
+        age--;
+      }
+
+      // Display the result on the page
+      document.getElementById('result').innerHTML = 'Your age is: ' + age + ' years';
+    }
+  </script>
+
+</body>
+</html>
